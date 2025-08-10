@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="w-full h-full bg-zinc-900 p-10 text-white">
+    <h1 class="text-3xl tracking-tighter mb-3">All Users</h1>
+    <div class="users">
+      <div class="user max-w-72 p-4 bg-zinc-800 rounded-lg">
+        <div class="w-full h-52 rounded-lg bg-red-500"></div>
+        <h3 class="tracking-tighter text-xl mt-3">Rupam Ghosh</h3>
+        <h5 class="text-zinc-500">rupam@email.com</h5>
+        <div class="flex gap-3 mt-10">
+          <a href="" class="text-zinc-600">Edit User</a>
+          <a href="" class="text-red-500">Delete User</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="w-full min-h-screen bg-zinc-900 p-10 text-white">
+    <a class="text-blue-500  mt-10" href="/">Back to Home</a>
+    <h1 class="text-3xl font-bold tracking-tighter mb-6">All Users</h1>
+    
+    <!-- Users Grid -->
+    <div class="users grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Single User Card -->
+       <% if(users.length > 0 ){ %>
+  <% users.forEach(function(user) { %>
+    <div class="user max-w-72 p-4 bg-zinc-800 rounded-lg shadow-lg">
+      <div class="w-full h-72 rounded-lg bg-zinc-700 overflow-hidden">
+        <img class="w-full h-full object-cover" src="<%= user.image %>" alt="">
+      </div>
+      <h3 class="tracking-tighter text-xl mt-3 font-semibold"><%= user.name %></h3>
+      <h5 class="text-zinc-400"><%= user.email %></h5>
+      <div class="flex gap-4 mt-6">
+        <a href="/edit/<%= user._id %>" class="text-blue-400 hover:underline">Edit User</a>
+        <a href="/delete/<%= user._id %>" class="text-red-500 hover:underline">Delete User</a>
+      </div>
+    </div>
+  <% }); %>
+<% } else { %>
+  <h3 class="text-zinc-500">No users yet</h3>
+<% } %>
+
+      
+
+     
+
+    </div>
+  </div>
+</body>
+</html>
